@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "taskName": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Text.Game.Console/Text.Game.Console.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+The game a player
+The game also has a bunch places that the player can visit by navigating with commands like "go east" or "climb up"
+The places have object that the player can interact with, like "pick up" or "read".
+The interactions depend on the type of objects. Some objects can be thrown.  Others cannot.
+Player has inventory of object.
+
+Places may have portals, like a door.  User can interact with a door using commands like "go through".  Portal connect places.
+
+There may be creatures in the game.  
+Player can fight creatures.
+Creatures can fight back.
+Player can user weapons if they are equipped.
+Player can equip a weapon they are carring.  The type of weapon player can equip may be limited.  For example, player may only use on sword or may use potions depending on level.
+
+Initial test game will have three places.
+- Bedroom
+- Living Room
+- Kitchen
+
+Navigation
+- Start in Bedroom, Bedroom has a door
+- Go through the door take you to the Living Room, you can see the kitchen 
+- Go to the kitchen, takes you to the Kitchen

@@ -7,17 +7,31 @@ namespace Text.Game.Console
     {
         static void Main(string[] args)
         {
-            Player playerOne = new Player();
+            System.Console.WriteLine("What is your name?");
+            GameState.Player.Name =  System.Console.ReadLine();
 
-            // setup places
-            Place currentPlace = new Place();
-            currentPlace.Name = "Bedroom";
-            // end setup places
 
-            System.Console.WriteLine("What is you name?");
-            playerOne.Name =  System.Console.ReadLine();
+            bool keepPlaying = true;
 
-            System.Console.WriteLine(  String.Format("Welcome {0}.  You are in the {1}", playerOne.Name, currentPlace.Name ) );
+            while(keepPlaying) {
+                System.Console.WriteLine(  String.Format("Welcome {0}.  You are in the {1}",GameState.Player.Name, GameState.CurrentPlace.Name ) );
+
+                string prompt = String.Format("{0}, what is your command?", GameState.Player.Name);
+                System.Console.WriteLine(prompt);
+                string command = System.Console.ReadLine();
+                
+                keepPlaying = command.ToLower() != "quit";
+
+                GameState.Navigate(command);
+
+                //if(command.ToLower()== "go left" && GameState.CurrentPlace == bedroom) {
+                //    GameState.CurrentPlace = kitchen;
+               // }
+            }
+
+            System.Console.WriteLine("Goodbye!");
+
+            
         }
     }
 }

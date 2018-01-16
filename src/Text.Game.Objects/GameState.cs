@@ -17,6 +17,7 @@ namespace Text.Game.Objects
             GameState.Player = new Player();
 
             GameState.Places = new List<Place>();
+
             Place bedroom = new Place();
             bedroom.Name = "Bedroom";
             GameState.Places.Add(bedroom);
@@ -25,7 +26,17 @@ namespace Text.Game.Objects
             kitchen.Name = "Kitchen";
             GameState.Places.Add(kitchen);
 
+            Place livingRoom = new Place();
+            livingRoom.Name = "Living Room";
+            GameState.Places.Add(livingRoom);
+
             GameState.Navigations.Add ( new Navigation("go left", bedroom, kitchen));
+
+            GameState.Navigations.Add ( new Navigation("go right", bedroom, livingRoom));
+
+            GameState.Navigations.Add ( new Navigation("go right", kitchen, bedroom));
+
+            GameState.Navigations.Add ( new Navigation("go left", livingRoom, bedroom));
 
             GameState.CurrentPlace = bedroom;
 
@@ -35,8 +46,8 @@ namespace Text.Game.Objects
             foreach(Navigation n in GameState.Navigations){
                 if( command == n.Command && GameState.CurrentPlace == n.FromPlace) {
                     GameState.CurrentPlace = n.ToPlace;
+                    break;
                 }
-                break;
             }
         }
 
